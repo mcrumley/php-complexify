@@ -3,6 +3,12 @@ php-complexify
 
 PHP port of Dan Palmer's [jquery.complexify.js](https://github.com/danpalmer/jquery.complexify.js/)
 
+## Installation
+
+```bash
+composer require mcrumley/php-complexify
+```
+
 ## Usage
 ```php
 $check = new \Complexify\Complexify();
@@ -40,3 +46,7 @@ The `evaluateSecurity` method returns an object containing the following propert
   - banned
   - tooshort
   - toosimple
+
+## License
+
+This code is distributed under the WTFPL v2 licence.
