@@ -182,7 +182,7 @@ class Complexify
     private $minimumChars = 8;
     private $strengthScaleFactor = 1;
     private $bannedPasswords = array();
-    private $banmode = 'strict'; // (strict|loose)
+    private $banMode = 'strict'; // (strict|loose)
     private $encoding = 'UTF-8';
 
     /**
@@ -194,7 +194,7 @@ class Complexify
      *  - minimumChars: Minimum password length (default: 8)
      *  - strengthScaleFactor: Required password strength multiplier (default: 1)
      *  - bannedPasswords: Custom list of banned passwords (default: long list of common passwords)
-     *  - banmode: Use strict or loose comparisons for banned passwords. "strict" = don't allow a substring of a banned password, "loose" = only ban exact matches (default: strict)
+     *  - banMode: Use strict or loose comparisons for banned passwords. "strict" = don't allow a substring of a banned password, "loose" = only ban exact matches (default: strict)
      *  - encoding: Character set encoding of the password (default: UTF-8)
      */
     public function __construct(array $options = array())
@@ -202,6 +202,10 @@ class Complexify
         $this->bannedPasswords = self::$BANLIST;
 
         foreach ($options as $opt => $val) {
+            if ($opt === 'banmode') {
+                trigger_error('The lowercase banmode option is deprecated. Use banMode instead.', E_USER_DEPRECATED);
+                $opt = 'banMode';
+            }
             $this->{$opt} = $val;
         }
     }
@@ -231,7 +235,7 @@ class Complexify
      *
      * @param  string  $str  String to check
      *
-     * @return  bool  TRUE if $str is a banned password, or if it is a substring of a banned password and $this->banmode is 'strict'
+     * @return  bool  TRUE if $str is a banned password, or if it is a substring of a banned password and $this->banMode is 'strict'
      */
     private function inBanlist($str)
     {
@@ -241,7 +245,7 @@ class Complexify
 
         $str = mb_convert_case($str, MB_CASE_LOWER, $this->encoding);
 
-        if ($this->banmode === 'strict') {
+        if ($this->banMode === 'strict') {
             for ($i = 0; $i < count($this->bannedPasswords); $i++) {
                 if (mb_strpos($this->bannedPasswords[$i], $str, 0, $this->encoding) !== false) {
                     return true;
