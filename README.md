@@ -31,7 +31,7 @@ $check = new \Complexify\Complexify(array(
     'minimumChars' => 8,          // the minimum acceptable password length
     'strengthScaleFactor' => 1,   // scale the required password strength (higher numbers require a more complex password)
     'bannedPasswords' => array(), // override the default banned password list
-    'banmode' => 'strict',        // strict == don't allow substrings of banned passwords, loose == only ban exact matches
+    'banMode' => 'strict',        // strict == don't allow substrings of banned passwords, loose == only ban exact matches
     'encoding' => 'UTF-8',        // password string encoding
 ));
 ```
