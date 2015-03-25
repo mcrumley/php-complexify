@@ -2,7 +2,7 @@
 /*
     PHP port of http://github.com/danpalmer/jquery.complexify.js
     Error reporting is based on https://github.com/kislyuk/node-complexify
-	  This code is distributed under the WTFPL v2:
+      This code is distributed under the WTFPL v2:
 */
 namespace Complexify;
 
@@ -13,6 +13,7 @@ class Complexify
     private static $CHARSETS = array(
         // Commonly Used
         ////////////////////
+        array(0x0020, 0x0020), // Space
         array(0x0030, 0x0039), // Numbers
         array(0x0041, 0x005A), // Uppercase
         array(0x0061, 0x007A), // Lowercase
