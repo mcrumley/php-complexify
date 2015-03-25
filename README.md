@@ -50,3 +50,11 @@ The `evaluateSecurity` method returns an object containing the following propert
 ## License
 
 This code is distributed under the WTFPL v2 licence.
+
+## Version History
+
+**0.4** - Changed banmode option to banMode
+
+**0.3.1** - Added composer support
+
+**0.3** - First release (matched version number of the JS version)
