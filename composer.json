@@ -1,7 +1,7 @@
 {
     "name": "mcrumley/php-complexify",
     "description": "PHP port of Dan Palmer's jquery.complexify.js",
-    "license": "WTFPL v2",
+    "license": "WTFPL",
     "authors": [
         {
             "name": "Michael Crumley",
